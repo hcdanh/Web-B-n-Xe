@@ -1,4 +1,4 @@
-
+<?php include 'includes/session.php'; ?>
 <?php include 'includes/header.php'; ?>
 <body class="hold-transition skin-blue layout-top-nav">
 <div class="wrapper">
@@ -29,7 +29,16 @@
 		        		</table>
 	        			</div>
 	        		</div>
-	        		
+	        		<?php
+	        			if(isset($_SESSION['user'])){?>
+							<a href="https://www.baokim.vn/payment/product/version11?business=nd172020%40gmail.com&id=&order_description=&product_name=Xe&product_price=99999999&product_quantity=1&total_amount=99999999&url_cancel=http%3A%2F%2Flocalhost%3A8088%2Fwebcar%2Ffailed_trans.php&url_detail=http%3A%2F%2Flocalhost%3A8088%2Fwebcar%2Fproduct.php%3Fproduct%3Dkia-morning&url_success=http%3A%2F%2Flocalhost%3A8088%2Fwebcar%2Fsuccess_trans.php"><img src="images/ico.png" alt="Thanh toán an toàn với Bảo Kim !" border="0" title="Thanh toán trực tuyến an toàn dùng tài khoản Ngân hàng (VietcomBank, TechcomBank, Đông Á, VietinBank, Quân Đội, VIB, SHB,... và thẻ Quốc tế (Visa, Master Card...) qua Cổng thanh toán trực tuyến BảoKim.vn" ></a>
+	        		<?php	}
+	        			else{
+	        				echo "
+	        					<h4>Bạn cần  <a href='login.php'>đăng nhập</a> để thực hiện thanh toán.</h4>
+	        				";
+	        			}
+	        		?>
 	        	</div>
 	        	<div class="col-sm-3">
 	        		<?php include 'includes/sidebar.php'; ?>
