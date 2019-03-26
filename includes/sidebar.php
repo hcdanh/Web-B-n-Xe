@@ -1,6 +1,5 @@
 	
-		<video src="videos/trailer.mp4"  width="300" height="400" controls autoplay loop>
-		</video>	
+	
 
 <div class="row">
 	<div class="box box-solid">

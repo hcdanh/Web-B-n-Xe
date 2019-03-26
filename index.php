@@ -23,6 +23,7 @@
 	        				unset($_SESSION['error']);
 	        			}
 	        		?>
+					<div class="col-sm-9">
 	        		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 		                <ol class="carousel-indicators">
 		                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -47,6 +48,11 @@
 		                  <span class="fa fa-angle-right"></span>
 		                </a>
 		            </div>
+					</div>
+					<div class="col-sm-3">
+						<video src="videos/trailer.mp4"   height="300" controls autoplay loop>
+						</video>	
+					</div>
 					<div class="col-sm-9">
 		            <h2>Tất cả sản phẩm</h2>
 		       		<?php
