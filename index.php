@@ -4,14 +4,14 @@
 <div class="wrapper">
 
 	<?php include 'includes/navbar.php'; ?>
-	 
+
 	  <div class="content-wrapper" style="background-color:White">
 	    <div class="container">
 
 	      <!-- Main content -->
 	      <section class="content">
 	        <div class="row">
-				
+
 	        	<div class="col-sm-12">
 	        		<?php
 	        			if(isset($_SESSION['error'])){
@@ -31,13 +31,13 @@
 		                </ol>
 		                <div class="carousel-inner">
 		                  <div class="item active">
-		                    <img src="images/banner1.png" alt="First slide">
+		                    <img src="images/banner4.jpg" style="width:1200px; height:380px" alt="First slide">
 		                  </div>
 		                  <div class="item">
-		                    <img src="images/banner2.png" alt="Second slide">
+		                    <img src="images/banner5.jpg" style="width:1200px; height:380px" alt="Second slide">
 		                  </div>
 		                  <div class="item">
-		                    <img src="images/banner3.png" alt="Third slide">
+		                    <img src="images/banner6.jpg" style="width:1200px; height:380px" alt="Third slide">
 		                  </div>
 		                </div>
 		                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -52,7 +52,6 @@
 		       		<?php
 		       			$month = date('m');
 		       			$conn = $pdo->open();
-
 		       			try{
 		       			 	$inc = 3;	
 						    $stmt = $conn->prepare("SELECT * FROM PRODUCTS");
@@ -82,22 +81,20 @@
 						catch(PDOException $e){
 							echo "There is some problem in connection: " . $e->getMessage();
 						}
-
 						$pdo->close();
-
 		       		?> 
 					</div>
 					<div class="col-sm-3">
 						<?php include 'includes/sidebar.php'; ?>
 					</div>
 	        	</div>
-						
+
 				</div>
 	      </section>
-	     
+
 	    </div>
 	  </div>
-  
+
   	<?php include 'includes/footer.php'; ?>
 </div>
 
