@@ -58,13 +58,29 @@
 		       		<?php
 		       			$month = date('m');
 		       			$conn = $pdo->open();
+						
 		       			try{
+							$results_per_page = 6;
 		       			 	$inc = 3;	
 						    $stmt = $conn->prepare("SELECT * FROM PRODUCTS");
-						    $stmt->execute();
-						    foreach ($stmt as $row) {
+						    $stmt->execute();							
+							$number_of_results=count($stmt->fetchAll());	
+										
+						    
+							$number_of_pages=ceil($number_of_results/$results_per_page);
+							if(!isset($_GET['page'])){
+								$page = 1;
+							}
+							else{
+								$page = $_GET['page'];
+							}
+							$this_page_first_result = ($page-1)*$results_per_page;
+							$stmt2 = $conn->prepare('SELECT * FROM PRODUCTS LIMIT '.$this_page_first_result.','.$results_per_page);
+							$stmt2->execute();
+							foreach ($stmt2 as $row) {														
 						    	$image = (!empty($row['photo'])) ? 'images/'.$row['photo'] : 'images/noimage.jpg';
 						    	$inc = ($inc == 3) ? 1 : $inc + 1;
+								$number_of_results++;
 	       						if($inc == 1) echo "<div class='row'>";
 	       						echo "
 	       							<div class='col-sm-4'>
@@ -83,11 +99,17 @@
 						    }
 						    if($inc == 1) echo "<div class='col-sm-4'></div><div class='col-sm-4'></div></div>"; 
 							if($inc == 2) echo "<div class='col-sm-4'></div></div>";
+							for($page=1;$page<=$number_of_pages;$page++){
+								echo '<a href="index.php?page='.$page.'"><p class="btn btn-primary">'.$page.'</p></a>';
+							}
+							
 						}
 						catch(PDOException $e){
 							echo "There is some problem in connection: " . $e->getMessage();
 						}
+
 						$pdo->close();
+
 		       		?> 
 					</div>
 					<div class="col-sm-3">
