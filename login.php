@@ -1,9 +1,31 @@
-
+<?php include 'includes/session.php'; ?>
+<?php
+  if(isset($_SESSION['user'])){
+    header('location: cart_view.php');
+  }
+?>
 <?php include 'includes/header.php'; ?>
 
 <body class="hold-transition login-page" style="background-image: url(images/wallpaper.jpg);background-size:1920px 1080px; background-repeat:no-repeat; background-position: center center; "  >
 <div class="login-box" >
-
+  	<?php
+      if(isset($_SESSION['error'])){
+        echo "
+          <div class='callout callout-danger text-center'>
+            <p>".$_SESSION['error']."</p> 
+          </div>
+        ";
+        unset($_SESSION['error']);
+      }
+      if(isset($_SESSION['success'])){
+        echo "
+          <div class='callout callout-success text-center'>
+            <p>".$_SESSION['success']."</p> 
+          </div>
+        ";
+        unset($_SESSION['success']);
+      }
+    ?>
   	<div class="login-box-body" style="opacity:0.8;background-color:Black">
     	<p class="login-box-msg" style="color:White" >Đăng nhập</p>
 
