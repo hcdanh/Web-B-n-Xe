@@ -1,0 +1,8 @@
+                       
+Tài khoan trang admin:
+Username: admin@admin.com
+Password: password
+
+car_db trong file source code
+
+tao bang ecomm trong phpmyadmin chèn du lieu car_db

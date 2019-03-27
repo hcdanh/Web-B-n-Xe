@@ -1,4 +1,0 @@
-                       
-Tài kho?n trang admin:
-Username: admin@admin.com
-Password: password
